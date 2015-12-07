@@ -1,0 +1,2 @@
+defmodule Currexbot do
+end
