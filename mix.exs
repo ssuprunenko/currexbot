@@ -30,6 +30,10 @@ defmodule Currexbot.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:nadia, "~> 0.3"}]
+    [
+      {:nadia, "~> 0.3"},
+      {:dogma, "~> 0.0", only: :dev},
+      {:credo, "~> 0.2", only: [:dev, :test]}
+    ]
   end
 end
