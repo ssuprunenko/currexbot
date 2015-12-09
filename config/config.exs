@@ -28,3 +28,5 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
+config :nadia,
+  token: "170013036:AAHR9cGcQIs3rSFpSXpe0I37ygFE8QFg-Jc"
