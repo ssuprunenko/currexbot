@@ -19,7 +19,10 @@ defmodule Currexbot.Bot do
 
   defp handle_private_message(chat_id, "/me") do
     {:ok, %User{first_name: bot_name}} = Nadia.get_me
-    Nadia.send_message(chat_id, bot_name)
+    env = Application.get_env(:currexbot, :env)
+    reply = "#{bot_name} in #{env} mode"
+
+    Nadia.send_message(chat_id, reply)
   end
 
   defp handle_private_message(chat_id, _) do
