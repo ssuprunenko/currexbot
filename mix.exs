@@ -12,7 +12,7 @@ defmodule Currexbot.Mixfile do
 
   def application do
     [
-      applications: [:logger, :nadia, :poison],
+      applications: [:logger, :nadia],
       mod: {Currexbot, []}
     ]
   end
@@ -20,7 +20,6 @@ defmodule Currexbot.Mixfile do
   defp deps do
     [
       {:nadia, "~> 0.3"},
-      {:exrm, "~> 1.0.0-rc7"},
       {:dogma, "~> 0.0", only: :dev},
       {:credo, "~> 0.2", only: [:dev, :test]}
     ]

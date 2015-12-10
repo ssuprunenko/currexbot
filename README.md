@@ -25,17 +25,5 @@ iex -S mix
 mix run --no-halt
 ```
 
-# Production
-```sh
-# Compile app in Production mode
-MIX_ENV=prod mix compile
-
-# Build a production exrm release
-MIX_ENV=prod mix release
-
-# Run release in console mode
-rel/currexbot/bin/currexbot console
-
-# Or run release as background process
-rel/currexbot/bin/currexbot start
-```
+## Deploying on Dokku
+See `DEPLOY.md`
