@@ -22,5 +22,7 @@ defmodule Currexbot.Bot do
     Nadia.send_message(chat_id, bot_name)
   end
 
-  defp handle_private_message(_chat_id, _), do: true
+  defp handle_private_message(chat_id, _) do
+    Nadia.send_message(chat_id, "dunno")
+  end
 end
