@@ -12,6 +12,8 @@ defmodule Currexbot do
       worker(Task, [@task_name, :pull_updates, []])
     ]
 
-    Supervisor.start_link(children, strategy: :one_for_one, name: Currexbot.Supervisor)
+    opts = [strategy: :one_for_one, name: Currexbot.Supervisor]
+
+    Supervisor.start_link(children, opts)
   end
 end
