@@ -3,7 +3,7 @@ defmodule Currexbot.Mixfile do
 
   def project do
     [app: :currexbot,
-     version: "0.0.1",
+     version: "0.0.2",
      elixir: "~> 1.1",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -12,7 +12,7 @@ defmodule Currexbot.Mixfile do
 
   def application do
     [
-      applications: [:logger, :nadia],
+      applications: [:logger, :nadia, :poison],
       mod: {Currexbot, []}
     ]
   end
@@ -20,6 +20,7 @@ defmodule Currexbot.Mixfile do
   defp deps do
     [
       {:nadia, "~> 0.3"},
+      {:exrm, "~> 1.0.0-rc7"},
       {:dogma, "~> 0.0", only: :dev},
       {:credo, "~> 0.2", only: [:dev, :test]}
     ]

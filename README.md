@@ -18,6 +18,24 @@ vim config/dev.secret.exs
 # Run the tests
 mix test
 
-# Run the server
+# Run the app in console mode
 iex -S mix
+
+# Or run without console
+mix run --no-halt
+```
+
+# Production
+```sh
+# Compile app in Production mode
+MIX_ENV=prod mix compile
+
+# Build a production exrm release
+MIX_ENV=prod mix release
+
+# Run release in console mode
+rel/currexbot/bin/currexbot console
+
+# Or run release as background process
+rel/currexbot/bin/currexbot start
 ```
