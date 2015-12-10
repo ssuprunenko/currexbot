@@ -1,19 +1,23 @@
-# Currexbot
+# CurrexBot
 
-**TODO: Add description**
+Telegram bot written in Elixir.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+```sh
+# Install Elixir deps
+mix deps.get
 
-  1. Add currexbot to your list of dependencies in `mix.exs`:
+# Get new Telegram bot token
+https://telegram.me/BotFather
 
-        def deps do
-          [{:currexbot, "~> 0.0.1"}]
-        end
+# Set up the secrets
+cp config/dev.secret.exs.example config/dev.secret.exs
+vim config/dev.secret.exs
 
-  2. Ensure currexbot is started before your application:
+# Run the tests
+mix test
 
-        def application do
-          [applications: [:currexbot]]
-        end
+# Run the server
+iex -S mix
+```
