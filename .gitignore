@@ -5,4 +5,4 @@
 erl_crash.dump
 *.ez
 .DS_Store
-*.secret.exs
+dev.secret.exs
