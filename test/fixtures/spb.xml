@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Exchange_Rates>
+  <Actual_Rates>
+    <Bank>
+      <Name>Витабанк</Name>
+      <Url/>
+      <USD>
+        <Buy>66,50</Buy>
+        <Sell>69,00</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,70</Buy>
+        <Sell>75,00</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 17:20</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Банк "Викинг"</Name>
+      <Url/>
+      <USD>
+        <Buy>66,00</Buy>
+        <Sell>68,30</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,50</Buy>
+        <Sell>74,30</Sell>
+      </EUR>
+      <ChangeTime>06.12.2015 09:49</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Балтийский Банк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=18</Url>
+      <USD>
+        <Buy>66,60</Buy>
+        <Sell>68,50</Sell>
+      </USD>
+      <EUR>
+        <Buy>72,70</Buy>
+        <Sell>74,70</Sell>
+      </EUR>
+      <ChangeTime>05.12.2015 09:04</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Банк «ПСКБ»</Name>
+      <Url/>
+      <USD>
+        <Buy>66,70</Buy>
+        <Sell>68,30</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,60</Buy>
+        <Sell>74,50</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 09:04</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>НС Банк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=713</Url>
+      <USD>
+        <Buy>66,00</Buy>
+        <Sell>69,50</Sell>
+      </USD>
+      <EUR>
+        <Buy>72,00</Buy>
+        <Sell>75,50</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 16:49</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Интерпрогрессбанк</Name>
+      <Url/>
+      <USD>
+        <Buy>66,00</Buy>
+        <Sell>70,00</Sell>
+      </USD>
+      <EUR>
+        <Buy>72,00</Buy>
+        <Sell>76,00</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 10:19</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Севзапинвестпромбанк</Name>
+      <Url/>
+      <USD>
+        <Buy>66,00</Buy>
+        <Sell>69,00</Sell>
+      </USD>
+      <EUR>
+        <Buy>72,00</Buy>
+        <Sell>75,00</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 16:19</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>ПАО МОСОБЛБАНК</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=290</Url>
+      <USD>
+        <Buy>66,40</Buy>
+        <Sell>70,10</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,70</Buy>
+        <Sell>76,80</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 18:20</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Ланта - Банк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=317</Url>
+      <USD>
+        <Buy>67,20</Buy>
+        <Sell>68,50</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,65</Buy>
+        <Sell>74,20</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 10:50</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Сбербанк России</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=246</Url>
+      <USD>
+        <Buy>65,70</Buy>
+        <Sell>70,70</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,50</Buy>
+        <Sell>76,75</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 18:34</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Газпромбанк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=44</Url>
+      <USD>
+        <Buy>66,00</Buy>
+        <Sell>69,00</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,50</Buy>
+        <Sell>75,00</Sell>
+      </EUR>
+      <ChangeTime>05.12.2015 00:04</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Запсибкомбанк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=150</Url>
+      <USD>
+        <Buy>67,10</Buy>
+        <Sell>68,20</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,20</Buy>
+        <Sell>74,40</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 18:34</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>МДМ Банк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=41</Url>
+      <USD>
+        <Buy>65,15</Buy>
+        <Sell>71,15</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,60</Buy>
+        <Sell>77,60</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 18:34</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>БИНБАНК</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=487</Url>
+      <USD>
+        <Buy>65,70</Buy>
+        <Sell>69,99</Sell>
+      </USD>
+      <EUR>
+        <Buy>72,00</Buy>
+        <Sell>76,29</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 17:20</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Банк «Восточный»</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=24</Url>
+      <USD>
+        <Buy>67,50</Buy>
+        <Sell>68,50</Sell>
+      </USD>
+      <EUR>
+        <Buy>73,50</Buy>
+        <Sell>74,50</Sell>
+      </EUR>
+      <ChangeTime>05.12.2015 10:49</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Плюс Банк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=201</Url>
+      <USD>
+        <Buy>65,00</Buy>
+        <Sell>70,00</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,00</Buy>
+        <Sell>76,00</Sell>
+      </EUR>
+      <ChangeTime>05.12.2015 06:19</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>«АК БАРС» БАНК</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=499</Url>
+      <USD>
+        <Buy>67,19</Buy>
+        <Sell>68,19</Sell>
+      </USD>
+      <EUR>
+        <Buy>72,90</Buy>
+        <Sell>74,29</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 11:49</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Тимер Банк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=915</Url>
+      <USD>
+        <Buy>66,93</Buy>
+        <Sell>68,13</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,70</Buy>
+        <Sell>74,13</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 16:12</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Райффайзенбанк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=786</Url>
+      <USD>
+        <Buy>65,55</Buy>
+        <Sell>70,65</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,55</Buy>
+        <Sell>77,20</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 18:05</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>ФОРУС Банк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=883</Url>
+      <USD>
+        <Buy>65,80</Buy>
+        <Sell>70,00</Sell>
+      </USD>
+      <EUR>
+        <Buy>69,80</Buy>
+        <Sell>75,25</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 09:19</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>СКБ-банк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=114</Url>
+      <USD>
+        <Buy>65,01</Buy>
+        <Sell>69,99</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,01</Buy>
+        <Sell>75,99</Sell>
+      </EUR>
+      <ChangeTime>05.12.2015 01:05</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Заубер Банк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=255</Url>
+      <USD>
+        <Buy>66,00</Buy>
+        <Sell>68,14</Sell>
+      </USD>
+      <EUR>
+        <Buy>72,00</Buy>
+        <Sell>74,09</Sell>
+      </EUR>
+      <ChangeTime>06.12.2015 09:34</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Инвестторгбанк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=561</Url>
+      <USD>
+        <Buy>66,50</Buy>
+        <Sell>68,75</Sell>
+      </USD>
+      <EUR>
+        <Buy>72,25</Buy>
+        <Sell>74,75</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 10:20</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Экспобанк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=660</Url>
+      <USD>
+        <Buy>66,51</Buy>
+        <Sell>68,86</Sell>
+      </USD>
+      <EUR>
+        <Buy>72,47</Buy>
+        <Sell>74,83</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 10:46</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Внешпромбанк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=765</Url>
+      <USD>
+        <Buy>67,00</Buy>
+        <Sell>69,00</Sell>
+      </USD>
+      <EUR>
+        <Buy>73,50</Buy>
+        <Sell>75,75</Sell>
+      </EUR>
+      <ChangeTime>05.12.2015 10:04</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Банк "Агророс"</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=605</Url>
+      <USD>
+        <Buy>67,11</Buy>
+        <Sell>68,18</Sell>
+      </USD>
+      <EUR>
+        <Buy>73,11</Buy>
+        <Sell>74,18</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 17:05</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Банк Оранжевый</Name>
+      <Url/>
+      <USD>
+        <Buy>66,00</Buy>
+        <Sell>70,00</Sell>
+      </USD>
+      <EUR>
+        <Buy>72,50</Buy>
+        <Sell>76,50</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 23:04</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Абсолют Банк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=413</Url>
+      <USD>
+        <Buy>65,50</Buy>
+        <Sell>69,50</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,50</Buy>
+        <Sell>75,50</Sell>
+      </EUR>
+      <ChangeTime>05.12.2015 09:19</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Банк "АЛЕКСАНДРОВСКИЙ"
+</Name>
+      <Url/>
+      <USD>
+        <Buy>66,30</Buy>
+        <Sell>68,60</Sell>
+      </USD>
+      <EUR>
+        <Buy>72,00</Buy>
+        <Sell>74,70</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 10:34</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Ханты-Мансийский банк Открытие</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=377</Url>
+      <USD>
+        <Buy>66,80</Buy>
+        <Sell>68,90</Sell>
+      </USD>
+      <EUR>
+        <Buy>72,90</Buy>
+        <Sell>75,05</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 18:05</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>БАНК УРАЛСИБ</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=406</Url>
+      <USD>
+        <Buy>64,89</Buy>
+        <Sell>70,18</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,04</Buy>
+        <Sell>76,39</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 18:20</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Банк «ФК Открытие»</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=383</Url>
+      <USD>
+        <Buy>66,90</Buy>
+        <Sell>68,80</Sell>
+      </USD>
+      <EUR>
+        <Buy>73,00</Buy>
+        <Sell>74,95</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 17:35</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Банк «ВПБ»</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=926</Url>
+      <USD>
+        <Buy>66,76</Buy>
+        <Sell>69,17</Sell>
+      </USD>
+      <EUR>
+        <Buy>73,13</Buy>
+        <Sell>75,63</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 18:05</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Банк «Санкт-Петербург»</Name>
+      <Url/>
+      <USD>
+        <Buy>67,00</Buy>
+        <Sell>69,25</Sell>
+      </USD>
+      <EUR>
+        <Buy>73,25</Buy>
+        <Sell>75,50</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 18:34</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Уральский банк реконструкции и развития</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=56</Url>
+      <USD>
+        <Buy>66,83</Buy>
+        <Sell>68,37</Sell>
+      </USD>
+      <EUR>
+        <Buy>72,83</Buy>
+        <Sell>74,53</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 15:34</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>ВТБ 24</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=259</Url>
+      <USD>
+        <Buy>66,90</Buy>
+        <Sell>69,05</Sell>
+      </USD>
+      <EUR>
+        <Buy>73,20</Buy>
+        <Sell>75,55</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 18:49</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Петербургский Городской банк</Name>
+      <Url/>
+      <USD>
+        <Buy>66,30</Buy>
+        <Sell>68,70</Sell>
+      </USD>
+      <EUR>
+        <Buy>72,00</Buy>
+        <Sell>74,90</Sell>
+      </EUR>
+      <ChangeTime>05.12.2015 09:04</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>БКС Банк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=14</Url>
+      <USD>
+        <Buy>67,60</Buy>
+        <Sell>68,89</Sell>
+      </USD>
+      <EUR>
+        <Buy>73,70</Buy>
+        <Sell>74,99</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 18:05</ChangeTime>
+    </Bank>
+  </Actual_Rates>
+  <Not_Actual_Rates>
+    <Bank>
+      <Name>Выборг-банк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=117</Url>
+      <USD>
+        <Buy>66,50</Buy>
+        <Sell>67,80</Sell>
+      </USD>
+      <EUR>
+        <Buy>72,50</Buy>
+        <Sell>73,60</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 11:04</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Донхлеббанк</Name>
+      <Url/>
+      <USD>
+        <Buy>67,20</Buy>
+        <Sell>67,90</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,50</Buy>
+        <Sell>74,50</Sell>
+      </EUR>
+      <ChangeTime>06.12.2015 06:34</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Россельхозбанк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=820</Url>
+      <USD>
+        <Buy>67,00</Buy>
+        <Sell>68,00</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,70</Buy>
+        <Sell>74,20</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 09:34</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Банк «Советский»</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=86</Url>
+      <USD>
+        <Buy>66,60</Buy>
+        <Sell>68,10</Sell>
+      </USD>
+      <EUR>
+        <Buy>72,45</Buy>
+        <Sell>73,95</Sell>
+      </EUR>
+      <ChangeTime>05.12.2015 14:49</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Банк «Северный Кредит»</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=434</Url>
+      <USD>
+        <Buy>66,00</Buy>
+        <Sell>67,95</Sell>
+      </USD>
+      <EUR>
+        <Buy>71,50</Buy>
+        <Sell>73,95</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 13:51</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Первобанк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=884</Url>
+      <USD>
+        <Buy>65,30</Buy>
+        <Sell>72,00</Sell>
+      </USD>
+      <EUR>
+        <Buy>69,70</Buy>
+        <Sell>75,70</Sell>
+      </EUR>
+      <ChangeTime>03.12.2015 17:50</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Эксперт Банк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=640</Url>
+      <USD>
+        <Buy>64,00</Buy>
+        <Sell>70,00</Sell>
+      </USD>
+      <EUR>
+        <Buy>68,00</Buy>
+        <Sell>74,00</Sell>
+      </EUR>
+      <ChangeTime>30.11.2015 10:19</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Невский банк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=179</Url>
+      <USD>
+        <Buy>66,40</Buy>
+        <Sell>68,45</Sell>
+      </USD>
+      <EUR>
+        <Buy>70,50</Buy>
+        <Sell>73,50</Sell>
+      </EUR>
+      <ChangeTime>04.12.2015 14:49</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>СЛАВИЯ</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=528</Url>
+      <USD>
+        <Buy>65,60</Buy>
+        <Sell>67,70</Sell>
+      </USD>
+      <EUR>
+        <Buy>69,35</Buy>
+        <Sell>71,70</Sell>
+      </EUR>
+      <ChangeTime>02.12.2015 12:46</ChangeTime>
+    </Bank>
+    <Bank>
+      <Name>Примсоцбанк</Name>
+      <Url>http://kovalut.ru/bank.php?kod=7801&amp;bank=548</Url>
+      <USD>
+        <Buy>64,10</Buy>
+        <Sell>65,30</Sell>
+      </USD>
+      <EUR>
+        <Buy>69,00</Buy>
+        <Sell>70,10</Sell>
+      </EUR>
+      <ChangeTime>20.11.2015 09:16</ChangeTime>
+    </Bank>
+  </Not_Actual_Rates>
+  <City>
+    <Name>Санкт-Петербург</Name>
+    <Url>http://kovalut.ru/index.php?kod=7801</Url>
+    <Simple_Date>6 декабря 2015</Simple_Date>
+    <Digital_Date>06.12.2015</Digital_Date>
+    <USD>
+      <Buy>67,60</Buy>
+      <Sell>68,00</Sell>
+    </USD>
+    <EUR>
+      <Buy>73,70</Buy>
+      <Sell>74,09</Sell>
+    </EUR>
+  </City>
+  <Central_Bank_RF>
+    <USD>
+      <New>
+        <Digital_Date>05.12.2015</Digital_Date>
+        <Exch_Rate>67.6698</Exch_Rate>
+      </New>
+      <Old>
+        <Digital_Date>04.12.2015</Digital_Date>
+        <Exch_Rate>67.7691</Exch_Rate>
+      </Old>
+    </USD>
+    <EUR>
+      <New>
+        <Digital_Date>05.12.2015</Digital_Date>
+        <Exch_Rate>73.6721</Exch_Rate>
+      </New>
+      <Old>
+        <Digital_Date>04.12.2015</Digital_Date>
+        <Exch_Rate>71.7404</Exch_Rate>
+      </Old>
+    </EUR>
+  </Central_Bank_RF>
+</Exchange_Rates>
