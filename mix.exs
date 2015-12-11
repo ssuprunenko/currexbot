@@ -20,6 +20,7 @@ defmodule Currexbot.Mixfile do
   defp deps do
     [
       {:nadia, "~> 0.3"},
+      {:sweet_xml, "~> 0.5"},
       {:dogma, "~> 0.0", only: :dev},
       {:credo, "~> 0.2", only: [:dev, :test]}
     ]
