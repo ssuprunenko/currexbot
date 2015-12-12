@@ -1,4 +1,10 @@
 defmodule Currexbot.Task do
+  @moduledoc """
+  Contains app's tasks
+  """
+  alias Currexbot.TaskSupervisor
+  alias Currexbot.Bot
+
   def pull_updates(offset \\ -1) do
     case Nadia.get_updates(offset: offset) do
       {:ok, updates} when length(updates) > 0 ->
@@ -10,8 +16,8 @@ defmodule Currexbot.Task do
     pull_updates(offset)
   end
 
-  def dispatch_updates(updates) do
+  defp dispatch_updates(updates) do
     updates
-    |> Enum.each(&Task.Supervisor.start_child(Currexbot.TaskSupervisor, Currexbot.Bot, :handle_message, [&1.message]))
+    |> Enum.each(&Task.Supervisor.start_child(TaskSupervisor, Bot, :handle_message, [&1.message]))
   end
 end

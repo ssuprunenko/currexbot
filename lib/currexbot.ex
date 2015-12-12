@@ -1,4 +1,7 @@
 defmodule Currexbot do
+  @moduledoc """
+  Starts Supervisor
+  """
   use Application
 
   @task_name Currexbot.Task
