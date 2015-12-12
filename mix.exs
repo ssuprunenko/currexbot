@@ -12,13 +12,14 @@ defmodule Currexbot.Mixfile do
 
   def application do
     [
-      applications: [:logger, :nadia],
+      applications: [:logger, :httpoison, :nadia],
       mod: {Currexbot, []}
     ]
   end
 
   defp deps do
     [
+      {:httpoison, "~> 0.8.0"},
       {:nadia, "~> 0.3"},
       {:sweet_xml, "~> 0.5"},
       {:dogma, "~> 0.0", only: :dev},
