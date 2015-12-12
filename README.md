@@ -26,4 +26,4 @@ mix run --no-halt
 ```
 
 ## Deploying on Dokku
-See `DEPLOY.md`
+Check [DEPLOY.md](DEPLOY.md) guide.
