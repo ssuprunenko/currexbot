@@ -5,7 +5,12 @@ defmodule Currexbot.Bot do
   alias Nadia.Model.Message
   alias Nadia.Model.Chat
   alias Nadia.Model.User
+  alias Nadia.Model.ReplyKeyboardMarkup
   alias Currexbot.Currency
+  import Enum, only: [at: 2]
+
+  @usd_list ["/usd", "Курс доллара 💵"]
+  @eur_list ["/eur", "Курс евро 💶"]
 
   @doc """
   Handle incoming message
@@ -33,10 +38,10 @@ defmodule Currexbot.Bot do
   end
 
   # Sends actual USD rates to the chat sorted by a bank's name.
-  defp handle_private_message(chat_id, "/usd") do
+  defp handle_private_message(chat_id, text) when text in @usd_list do
     reply = Currency.get_rates("USD")
 
-    Nadia.send_message(chat_id, reply)
+    Nadia.send_message(chat_id, reply, reply_markup: default_kbd)
   end
 
   # Sends actual USD rates to the chat sorted by buy value in descending order.
@@ -47,10 +52,10 @@ defmodule Currexbot.Bot do
   end
 
   # Sends actual EUR rates to the chat sorted by a bank's name.
-  defp handle_private_message(chat_id, "/eur") do
+  defp handle_private_message(chat_id, text) when text in @eur_list do
     reply = Currency.get_rates("EUR")
 
-    Nadia.send_message(chat_id, reply)
+    Nadia.send_message(chat_id, reply, reply_markup: default_kbd)
   end
 
   # Sends actual EUR rates to the chat sorted by buy value in descending order.
@@ -61,6 +66,12 @@ defmodule Currexbot.Bot do
   end
 
   defp handle_private_message(chat_id, _) do
-    Nadia.send_message(chat_id, "dunno")
+    Nadia.send_message(chat_id, "Выберите валюту:", reply_markup: default_kbd)
+  end
+
+  defp default_kbd do
+    %ReplyKeyboardMarkup{keyboard: [[at(@usd_list, 1), at(@eur_list, 1)]],
+                         resize_keyboard: true,
+                         one_time_keyboard: true}
   end
 end
