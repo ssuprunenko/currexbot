@@ -1,6 +1,6 @@
 %{"bunt": {:hex, :bunt, "0.1.4"},
   "certifi": {:hex, :certifi, "0.3.0"},
-  "credo": {:hex, :credo, "0.2.1"},
+  "credo": {:hex, :credo, "0.2.4"},
   "dogma": {:hex, :dogma, "0.0.11"},
   "hackney": {:hex, :hackney, "1.4.7"},
   "httpoison": {:hex, :httpoison, "0.8.0"},
