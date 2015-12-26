@@ -12,7 +12,7 @@ defmodule Currexbot.Mixfile do
 
   def application do
     [
-      applications: [:logger, :httpoison, :nadia],
+      applications: [:postgrex, :ecto, :logger, :httpoison, :nadia],
       mod: {Currexbot, []}
     ]
   end
@@ -22,6 +22,8 @@ defmodule Currexbot.Mixfile do
       {:httpoison, "~> 0.8.0"},
       {:nadia, "~> 0.3"},
       {:sweet_xml, "~> 0.5"},
+      {:postgrex, ">= 0.0.0"},
+      {:ecto, "~> 1.1"},
       {:dogma, "~> 0.0", only: :dev},
       {:credo, "~> 0.2", only: [:dev, :test]}
     ]
