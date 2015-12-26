@@ -7,13 +7,13 @@ defmodule Currexbot.Currency do
 
   @base_url "http://informer.kovalut.ru/webmaster/xml-table.php?kod="
   @fav_banks ["Балтийский Банк", "Банк «ФК Открытие»", "ВТБ 24",
-              "Сбербанк России", "Банк «Советский»", "Райффайзенбанк"]
+              "Сбербанк России", "Банк «Советский»"]
 
-  def get_rates(currency \\ "USD", sort_el \\ "name", city_code \\ "7801") do
+  def get_rates(user, currency \\ "USD", sort_el \\ "name", city_code \\ "7801") do
     city_code
     |> fetch_xml
     |> parse_xml(currency)
-    |> filter_banks(@fav_banks)
+    |> filter_banks(user.fav_banks)
     |> sort_rates(sort_el)
     |> prettify
   end
@@ -33,7 +33,10 @@ defmodule Currexbot.Currency do
   end
 
   defp filter_banks(rates, fav_banks) do
-    Enum.filter(rates, fn(bank) -> String.contains?(bank.name, fav_banks) end)
+    case Enum.count(fav_banks) do
+      0 -> rates
+      _ -> Enum.filter(rates, fn(bank) -> String.contains?(bank.name, fav_banks) end)
+    end
   end
 
   defp sort_rates(rates, sort_el) do
