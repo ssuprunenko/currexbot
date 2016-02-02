@@ -6,8 +6,6 @@ defmodule Currexbot.Currency do
   import SweetXml
 
   @base_url "http://informer.kovalut.ru/webmaster/xml-table.php?kod="
-  @fav_banks ["Балтийский Банк", "Банк «ФК Открытие»", "ВТБ 24",
-              "Сбербанк России", "Банк «Советский»"]
 
   def get_rates(user, currency \\ "USD", sort_el \\ "name", city_code \\ "7801") do
     city_code
