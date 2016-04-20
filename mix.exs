@@ -20,12 +20,12 @@ defmodule Currexbot.Mixfile do
   defp deps do
     [
       {:httpoison, "~> 0.8.0"},
-      {:nadia, "~> 0.3"},
-      {:sweet_xml, "~> 0.5"},
+      {:nadia, github: "zhyu/nadia"},
+      {:floki, "~> 0.8"},
+      {:sweet_xml, "~> 0.6"},
       {:postgrex, ">= 0.0.0"},
-      {:ecto, "~> 1.1"},
-      {:dogma, "~> 0.0", only: :dev},
-      {:credo, "~> 0.2", only: [:dev, :test]}
+      {:ecto, "~> 2.0.0-rc.1"},
+      {:credo, "~> 0.3", only: [:dev, :test]}
     ]
   end
 end
