@@ -5,6 +5,7 @@ defmodule Currexbot.Bot do
   alias Nadia.Model.Message
   alias Nadia.Model.Chat
   alias Nadia.Model.ReplyKeyboardMarkup
+  alias Currexbot.Bank
   alias Currexbot.Currency
   alias Currexbot.User
   import Enum, only: [at: 2]
@@ -71,7 +72,11 @@ defmodule Currexbot.Bot do
   #
   # Settings commands
   #
-  defp handle_private_message(_user, chat_id, "Настройки🔧") do
+  defp handle_private_message(_user, chat_id, "Настройки 🔧") do
+    Nadia.send_message(chat_id, "Ваши текущие настройки:", reply_markup: settings_kbd)
+  end
+
+  defp handle_private_message(_user, chat_id, "/settings") do
     Nadia.send_message(chat_id, "Ваши текущие настройки:", reply_markup: settings_kbd)
   end
 
@@ -85,16 +90,23 @@ defmodule Currexbot.Bot do
     Nadia.send_message(chat_id, reply, reply_markup: fav_banks_kbd)
   end
 
-  defp handle_private_message(_user, chat_id, "Добавить банк") do
-    reply = "/add_bank Банк"
+  defp handle_private_message(user, chat_id, "Доступные банки") do
+    banks = Bank.available_in_city
+    reply = Enum.join(banks, "\n")
 
     Nadia.send_message(chat_id, reply, reply_markup: fav_banks_kbd)
   end
 
-  defp handle_private_message(_user, chat_id, "Удалить банк") do
-    reply = "/rm_bank Банк"
+  defp handle_private_message(user, chat_id, "Добавить банк") do
+    reply = "Выберите банк:"
 
-    Nadia.send_message(chat_id, reply, reply_markup: fav_banks_kbd)
+    Nadia.send_message(chat_id, reply, reply_markup: banks_to_add_kbd(user))
+  end
+
+  defp handle_private_message(user, chat_id, "Удалить банк") do
+    reply = "Выберите банк:"
+
+    Nadia.send_message(chat_id, reply, reply_markup: banks_to_remove_kbd(user))
   end
 
   defp handle_private_message(user, chat_id, "Очистить избранное") do
@@ -105,7 +117,7 @@ defmodule Currexbot.Bot do
     handle_private_message(user, chat_id, "Избранные банки ⭐️")
   end
 
-  defp handle_private_message(user, chat_id, "/add_bank " <> bank) do
+  defp handle_private_message(user, chat_id, "⭐ " <> bank) do
     user_change = Ecto.Changeset.change user, fav_banks: user.fav_banks ++ [bank]
     Currexbot.Repo.update user_change
 
@@ -113,7 +125,7 @@ defmodule Currexbot.Bot do
     handle_private_message(user, chat_id, "Избранные банки ⭐️")
   end
 
-  defp handle_private_message(user, chat_id, "/rm_bank " <> bank) do
+  defp handle_private_message(user, chat_id, "❌ " <> bank) do
     user_change = Ecto.Changeset.change user, fav_banks: user.fav_banks -- [bank]
     Currexbot.Repo.update user_change
 
@@ -126,11 +138,12 @@ defmodule Currexbot.Bot do
     Nadia.send_message(chat_id, "Выберите валюту:", reply_markup: default_kbd)
   end
 
+  # Keyboards
   defp default_kbd do
     %ReplyKeyboardMarkup{keyboard: [
                           [at(@usd_list, 1)],
                           [at(@eur_list, 1)],
-                          ["Настройки🔧"]
+                          ["Настройки 🔧"]
                          ],
                          resize_keyboard: true,
                          one_time_keyboard: true}
@@ -139,7 +152,7 @@ defmodule Currexbot.Bot do
   defp settings_kbd do
     %ReplyKeyboardMarkup{keyboard: [
                           ["Избранные банки ⭐️"],
-                          ["Ваш город"],
+                          ["Ваш город 🏙"],
                           ["Главное меню"]
                          ],
                          resize_keyboard: true,
@@ -148,11 +161,31 @@ defmodule Currexbot.Bot do
 
   defp fav_banks_kbd do
     %ReplyKeyboardMarkup{keyboard: [
+                          ["Доступные банки"],
                           ["Добавить банк"],
                           ["Удалить банк"],
                           ["Очистить избранное"],
                           ["Главное меню"]
                          ],
+                         resize_keyboard: true,
+                         one_time_keyboard: true}
+  end
+
+  defp banks_to_add_kbd(user, city_code \\ "7801") do
+    banks = Bank.available_in_city(city_code) -- user.fav_banks
+    banks_cmds = Enum.map(banks, fn(x) -> ["⭐ " <> x] end)
+    buttons = [["Главное меню"]] ++ banks_cmds
+
+    %ReplyKeyboardMarkup{keyboard: buttons,
+                         resize_keyboard: true,
+                         one_time_keyboard: true}
+  end
+
+  defp banks_to_remove_kbd(user, city_code \\ "7801") do
+    banks = Enum.map(user.fav_banks, fn(x) -> ["❌ " <> x] end)
+    buttons = [["Главное меню"]] ++ banks
+
+    %ReplyKeyboardMarkup{keyboard: buttons,
                          resize_keyboard: true,
                          one_time_keyboard: true}
   end
