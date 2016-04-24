@@ -24,7 +24,7 @@ defmodule Currexbot.Mixfile do
       {:floki, "~> 0.8"},
       {:sweet_xml, "~> 0.6"},
       {:postgrex, ">= 0.0.0"},
-      {:ecto, "~> 2.0.0-rc.1"},
+      {:ecto, "~> 2.0.0-rc.3"},
       {:credo, "~> 0.3", only: [:dev, :test]}
     ]
   end
