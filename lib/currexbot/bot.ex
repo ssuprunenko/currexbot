@@ -14,7 +14,7 @@ defmodule Currexbot.Bot do
 
   @usd_list ["/usd", "Курс доллара 💵"]
   @eur_list ["/eur", "Курс евро 💶"]
-  @current_city_list ["/city", "Ваш город 🏙"]
+  @current_city_list ["/city", "Изменить город 🏙"]
   @settings_list ["/settings", "Настройки 🔧"]
 
   @doc """
@@ -77,7 +77,12 @@ defmodule Currexbot.Bot do
   # Settings commands
   #
   defp handle_private_message(user, chat_id, text) when text in @settings_list do
-    Nadia.send_message(chat_id, "Ваши текущие настройки:", reply_markup: settings_kbd)
+    reply = """
+    Ваши текущие настройки:
+    Город: #{user.city.name}
+    """
+
+    Nadia.send_message(chat_id, reply, reply_markup: settings_kbd)
   end
 
   defp handle_private_message(user, chat_id, "Избранные банки ⭐️") do
@@ -91,7 +96,7 @@ defmodule Currexbot.Bot do
   end
 
   defp handle_private_message(user, chat_id, "Доступные банки") do
-    banks = Bank.available_in_city
+    banks = Bank.available_in_city(user.city.code)
     reply = Enum.join(banks, "\n")
 
     Nadia.send_message(chat_id, reply, reply_markup: fav_banks_kbd)
@@ -140,19 +145,23 @@ defmodule Currexbot.Bot do
         %City{} ->
           changeset = User.changeset(user, %{city_id: city.id})
           Repo.update!(changeset)
-          "Ваш текущий город — " <> city_name
+          "Ваш текущий город — *#{city_name}*"
         nil ->
           "Извините, ваш город пока не поддерживается"
       end
 
-    Nadia.send_message(chat_id, reply)
+    Nadia.send_message(chat_id, reply, parse_mode: "Markdown")
   end
 
   defp handle_private_message(user, chat_id, text) when text in @current_city_list do
     city = user.city.name
-    reply = "Ваш текущий город — " <> city
+    reply = """
+    Ваш текущий город — *#{city}*
+    Команда для изменения города:
+    `/city Санкт-Петербург`
+    """
 
-    Nadia.send_message(chat_id, reply)
+    Nadia.send_message(chat_id, reply, parse_mode: "Markdown")
   end
 
   # Exchange rates commands
@@ -193,8 +202,8 @@ defmodule Currexbot.Bot do
                          one_time_keyboard: true}
   end
 
-  defp banks_to_add_kbd(user, city_code \\ "7801") do
-    banks = Bank.available_in_city(city_code) -- user.fav_banks
+  defp banks_to_add_kbd(user) do
+    banks = Bank.available_in_city(user.city.code) -- user.fav_banks
     banks_cmds = Enum.map(banks, fn(x) -> ["⭐ " <> x] end)
     buttons = [["Главное меню"]] ++ banks_cmds
 
@@ -203,7 +212,7 @@ defmodule Currexbot.Bot do
                          one_time_keyboard: true}
   end
 
-  defp banks_to_remove_kbd(user, city_code \\ "7801") do
+  defp banks_to_remove_kbd(user) do
     banks = Enum.map(user.fav_banks, fn(x) -> ["❌ " <> x] end)
     buttons = [["Главное меню"]] ++ banks
 
