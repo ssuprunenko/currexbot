@@ -31,7 +31,7 @@ defmodule Currexbot.User do
         user |> Repo.preload(:city)
       nil ->
         default_city = Repo.get_by(City, name: "Москва")
-        %User{chat_id: chat_id, city_id: default_city.id}
+        %User{chat_id: chat_id, city_id: default_city.id, fav_banks: []}
         |> Repo.insert!
         |> Repo.preload(:city)
     end

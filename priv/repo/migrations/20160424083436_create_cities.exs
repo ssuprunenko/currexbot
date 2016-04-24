@@ -4,7 +4,7 @@ defmodule Currexbot.Repo.Migrations.CreateCities do
   def change do
     create table :cities do
       add :name, :string
-      add :code, :integer
+      add :code, :string
     end
   end
 end

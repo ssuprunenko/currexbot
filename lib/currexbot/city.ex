@@ -3,6 +3,6 @@ defmodule Currexbot.City do
 
   schema "cities" do
     field :name, :string
-    field :code, :integer
+    field :code, :string
   end
 end

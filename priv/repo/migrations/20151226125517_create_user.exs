@@ -4,7 +4,6 @@ defmodule Currexbot.Repo.Migrations.CreateUser do
   def change do
     create table :users do
       add :chat_id, :integer
-      add :city, :string
       add :fav_banks, {:array, :string}
       add :default_sort, :string
       add :language, :string
