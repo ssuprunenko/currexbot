@@ -7,8 +7,8 @@ defmodule Currexbot.Currency do
 
   @base_url "http://informer.kovalut.ru/webmaster/xml-table.php?kod="
 
-  def get_rates(user, currency \\ "USD", sort_el \\ "name", city_code \\ "7801") do
-    city_code
+  def get_rates(user, currency \\ "USD", sort_el \\ "name") do
+    user.city.code
     |> fetch_xml
     |> parse_xml(currency)
     |> filter_banks(user.fav_banks)
@@ -17,7 +17,7 @@ defmodule Currexbot.Currency do
   end
 
   defp fetch_xml(city_code) do
-    url = @base_url <> city_code
+    url = @base_url <> to_string(city_code)
     %HTTPoison.Response{status_code: 200, body: body} = HTTPoison.get! url
     body
   end

@@ -5,7 +5,7 @@
   "db_connection": {:hex, :db_connection, "0.2.5"},
   "decimal": {:hex, :decimal, "1.1.1"},
   "dogma": {:hex, :dogma, "0.1.4"},
-  "ecto": {:hex, :ecto, "2.0.0-rc.1"},
+  "ecto": {:hex, :ecto, "2.0.0-rc.3"},
   "floki": {:hex, :floki, "0.8.0"},
   "hackney": {:hex, :hackney, "1.6.0"},
   "httpoison": {:hex, :httpoison, "0.8.3"},
