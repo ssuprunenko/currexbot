@@ -6,18 +6,22 @@ defmodule Currexbot.Bot do
   alias Nadia.Model.Chat
   alias Nadia.Model.ReplyKeyboardMarkup
   alias Currexbot.Bank
+  alias Currexbot.City
   alias Currexbot.Currency
+  alias Currexbot.Repo
   alias Currexbot.User
   import Enum, only: [at: 2]
 
   @usd_list ["/usd", "Курс доллара 💵"]
   @eur_list ["/eur", "Курс евро 💶"]
+  @current_city_list ["/city", "Ваш город 🏙"]
+  @settings_list ["/settings", "Настройки 🔧"]
 
   @doc """
   Handle incoming message
   """
   def handle_message(%Message{chat: %Chat{type: "private", id: chat_id}, text: text}) do
-    user = User.find_or_create_by_chat_id chat_id
+    user = User.find_or_create_by_chat_id(chat_id)
 
     handle_private_message(user, chat_id, text)
   end
@@ -72,11 +76,7 @@ defmodule Currexbot.Bot do
   #
   # Settings commands
   #
-  defp handle_private_message(_user, chat_id, "Настройки 🔧") do
-    Nadia.send_message(chat_id, "Ваши текущие настройки:", reply_markup: settings_kbd)
-  end
-
-  defp handle_private_message(_user, chat_id, "/settings") do
+  defp handle_private_message(user, chat_id, text) when text in @settings_list do
     Nadia.send_message(chat_id, "Ваши текущие настройки:", reply_markup: settings_kbd)
   end
 
@@ -110,27 +110,49 @@ defmodule Currexbot.Bot do
   end
 
   defp handle_private_message(user, chat_id, "Очистить избранное") do
-    user_change = Ecto.Changeset.change user, fav_banks: []
-    Currexbot.Repo.update user_change
+    user_change = Ecto.Changeset.change(user, fav_banks: [])
+    Repo.update(user_change)
 
-    user = User.find_or_create_by_chat_id chat_id
+    user = User.find_or_create_by_chat_id(chat_id)
     handle_private_message(user, chat_id, "Избранные банки ⭐️")
   end
 
   defp handle_private_message(user, chat_id, "⭐ " <> bank) do
-    user_change = Ecto.Changeset.change user, fav_banks: user.fav_banks ++ [bank]
-    Currexbot.Repo.update user_change
+    user_change = Ecto.Changeset.change(user, fav_banks: user.fav_banks ++ [bank])
+    Repo.update(user_change)
 
-    user = User.find_or_create_by_chat_id chat_id
+    user = User.find_or_create_by_chat_id(chat_id)
     handle_private_message(user, chat_id, "Избранные банки ⭐️")
   end
 
   defp handle_private_message(user, chat_id, "❌ " <> bank) do
     user_change = Ecto.Changeset.change user, fav_banks: user.fav_banks -- [bank]
-    Currexbot.Repo.update user_change
+    Repo.update user_change
 
-    user = User.find_or_create_by_chat_id chat_id
+    user = User.find_or_create_by_chat_id(chat_id)
     handle_private_message(user, chat_id, "Избранные банки ⭐️")
+  end
+
+  defp handle_private_message(user, chat_id, "/city " <> city_name) do
+    city = Repo.get_by(City, name: city_name)
+    reply =
+      case city do
+        %City{} ->
+          changeset = User.changeset(user, %{city_id: city.id})
+          Repo.update!(changeset)
+          "Ваш текущий город — " <> city_name
+        nil ->
+          "Извините, ваш город пока не поддерживается"
+      end
+
+    Nadia.send_message(chat_id, reply)
+  end
+
+  defp handle_private_message(user, chat_id, text) when text in @current_city_list do
+    city = user.city.name
+    reply = "Ваш текущий город — " <> city
+
+    Nadia.send_message(chat_id, reply)
   end
 
   # Exchange rates commands
@@ -143,7 +165,7 @@ defmodule Currexbot.Bot do
     %ReplyKeyboardMarkup{keyboard: [
                           [at(@usd_list, 1)],
                           [at(@eur_list, 1)],
-                          ["Настройки 🔧"]
+                          [at(@settings_list, 1)]
                          ],
                          resize_keyboard: true,
                          one_time_keyboard: true}
@@ -152,7 +174,7 @@ defmodule Currexbot.Bot do
   defp settings_kbd do
     %ReplyKeyboardMarkup{keyboard: [
                           ["Избранные банки ⭐️"],
-                          ["Ваш город 🏙"],
+                          [at(@current_city_list, 1)],
                           ["Главное меню"]
                          ],
                          resize_keyboard: true,
