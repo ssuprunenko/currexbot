@@ -107,6 +107,9 @@ defmodule Currexbot.Bot do
     Nadia.send_message(chat_id, reply, reply_markup: settings_kbd)
   end
 
+  #
+  # Manage favorite banks
+  #
   defp handle_private_message(user, chat_id, "Избранные банки ⭐️") do
     reply =
       case user.fav_banks do
@@ -160,6 +163,9 @@ defmodule Currexbot.Bot do
     handle_private_message(user, chat_id, "Избранные банки ⭐️")
   end
 
+  #
+  # Manage current city
+  #
   defp handle_private_message(user, chat_id, "Изменить город 🏙") do
     city = user.city.name
     reply = """
@@ -197,12 +203,16 @@ defmodule Currexbot.Bot do
     Nadia.send_message(chat_id, reply, parse_mode: "Markdown", reply_markup: detect_city_kbd)
   end
 
-  # Exchange rates commands
+  # Default fallback function
   defp handle_private_message(_user, chat_id, _) do
     Nadia.send_message(chat_id, "Выберите валюту:", reply_markup: default_kbd)
   end
 
-  # Keyboards
+  #
+  # Custom Keyboards
+  #
+  #
+  # Default keyboard
   defp default_kbd do
     %ReplyKeyboardMarkup{keyboard: [
                           [at(@usd_list, 1)],
@@ -214,6 +224,7 @@ defmodule Currexbot.Bot do
                          one_time_keyboard: true}
   end
 
+  # Settings keyboard
   defp settings_kbd do
     %ReplyKeyboardMarkup{keyboard: [
                           ["Избранные банки ⭐️"],
@@ -224,6 +235,7 @@ defmodule Currexbot.Bot do
                          one_time_keyboard: true}
   end
 
+  # Fav banks keyboard
   defp fav_banks_kbd do
     %ReplyKeyboardMarkup{keyboard: [
                           ["Доступные банки"],
@@ -255,6 +267,7 @@ defmodule Currexbot.Bot do
                          one_time_keyboard: true}
   end
 
+  # Current city keyboard
   defp detect_city_kbd do
     %ReplyKeyboardMarkup{
       keyboard: [
