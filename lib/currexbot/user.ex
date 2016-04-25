@@ -11,7 +11,7 @@ defmodule Currexbot.User do
     field :default_sort, :string
     field :language, :string
 
-    belongs_to :city, Currexbot.City, defaults: [name: "Москва"]
+    belongs_to :city, Currexbot.City
 
     timestamps
   end
