@@ -27,3 +27,14 @@ mix run --no-halt
 
 ## Deploying on Dokku
 Check [DEPLOY.md](DEPLOY.md) guide.
+
+```sh
+# Run custom command on Dokku
+ssh dokku@DOMAIN_NAME.com run APP_NAME mix ecto.migrate
+
+# Set ENV variable
+ssh dokku@DOMAIN_NAME.com config:set APP_NAME KEY=value
+
+# Open iex console
+ssh dokku@DOMAIN_NAME.com iex -S mix
+```
