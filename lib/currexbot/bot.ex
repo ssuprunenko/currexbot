@@ -15,7 +15,7 @@ defmodule Currexbot.Bot do
 
   @usd_list ["/usd", "Курс доллара 💵"]
   @eur_list ["/eur", "Курс евро 💶"]
-  @cb_list ["/cb", "Курсы ЦБ"]
+  @cb_list ["/cb", "Курсы ЦБ 🏦"]
   @current_city_list ["/city", "Установить вручную"]
   @settings_list ["/settings", "Настройки 🔧"]
 
