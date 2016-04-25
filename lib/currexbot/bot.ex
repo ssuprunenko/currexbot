@@ -15,6 +15,7 @@ defmodule Currexbot.Bot do
 
   @usd_list ["/usd", "Курс доллара 💵"]
   @eur_list ["/eur", "Курс евро 💶"]
+  @cb_list ["/cb", "Курсы ЦБ 🏦"]
   @current_city_list ["/city", "Установить вручную"]
   @settings_list ["/settings", "Настройки 🔧"]
 
@@ -79,6 +80,17 @@ defmodule Currexbot.Bot do
   # Sends actual EUR rates to the chat sorted by a bank's name.
   defp handle_private_message(user, chat_id, text) when text in @eur_list do
     reply = Currency.get_rates(user, "EUR")
+
+    Nadia.send_message(chat_id, reply, reply_markup: default_kbd)
+  end
+
+  # Sends actual Central Bank rates to the chat.
+  defp handle_private_message(user, chat_id, text) when text in @cb_list do
+    rates = Currency.get_cb_rates(user)
+    reply = """
+    Доллар #{rates.usd}
+    Евро #{rates.eur}
+    """
 
     Nadia.send_message(chat_id, reply, reply_markup: default_kbd)
   end
@@ -195,6 +207,7 @@ defmodule Currexbot.Bot do
     %ReplyKeyboardMarkup{keyboard: [
                           [at(@usd_list, 1)],
                           [at(@eur_list, 1)],
+                          [at(@cb_list, 1)],
                           [at(@settings_list, 1)]
                          ],
                          resize_keyboard: true,
