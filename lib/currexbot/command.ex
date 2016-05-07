@@ -10,4 +10,11 @@ defmodule Currexbot.Command do
     |> Enum.reject(fn(v) -> v == Currexbot.Command end)
     |> List.flatten
   end
+
+  def translate(lang, command) do
+    case lang do
+      "ru" -> command.ru
+      _ -> command.en
+    end
+  end
 end
