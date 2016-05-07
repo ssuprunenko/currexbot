@@ -3,8 +3,8 @@ defmodule Currexbot.Mixfile do
 
   def project do
     [app: :currexbot,
-     version: "0.0.3",
-     elixir: "~> 1.1",
+     version: "0.1.0",
+     elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]
@@ -24,7 +24,8 @@ defmodule Currexbot.Mixfile do
       {:floki, "~> 0.8"},
       {:sweet_xml, "~> 0.6"},
       {:postgrex, ">= 0.0.0"},
-      {:ecto, "~> 2.0.0-rc.3"},
+      {:ecto, "~> 2.0.0-rc.4"},
+      {:linguist, "~> 0.1.5"},
       {:credo, "~> 0.3", only: [:dev, :test]}
     ]
   end
