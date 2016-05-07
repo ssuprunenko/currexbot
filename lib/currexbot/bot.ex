@@ -142,7 +142,7 @@ defmodule Currexbot.Bot do
   #
   # Manage favorite banks
   #
-  defp handle_private_message(user, chat_id, unquote(@fav_banks.ru)) do
+  defp handle_private_message(user, chat_id, text) when text in unquote(values(@fav_banks)) do
     reply =
       case user.fav_banks do
         [] -> "У вас нет избранных банков"
@@ -152,31 +152,31 @@ defmodule Currexbot.Bot do
     Nadia.send_message(chat_id, reply, reply_markup: fav_banks_kbd(user.language))
   end
 
-  defp handle_private_message(user, chat_id, unquote(@all_banks.ru)) do
+  defp handle_private_message(user, chat_id, text) when text in unquote(values(@all_banks)) do
     banks = Bank.available_in_city(user.city.code)
     reply = Enum.join(banks, "\n")
 
     Nadia.send_message(chat_id, reply, reply_markup: fav_banks_kbd(user.language))
   end
 
-  defp handle_private_message(user, chat_id, unquote(@add_bank.ru)) do
+  defp handle_private_message(user, chat_id, text) when text in unquote(values(@add_bank)) do
     reply = "Выберите банк:"
 
     Nadia.send_message(chat_id, reply, reply_markup: banks_to_add_kbd(user))
   end
 
-  defp handle_private_message(user, chat_id, unquote(@rm_bank.ru)) do
+  defp handle_private_message(user, chat_id, text) when text in unquote(values(@rm_bank)) do
     reply = "Выберите банк:"
 
     Nadia.send_message(chat_id, reply, reply_markup: banks_to_remove_kbd(user))
   end
 
-  defp handle_private_message(user, chat_id, unquote(@rm_fav_banks.ru)) do
+  defp handle_private_message(user, chat_id, text) when text in unquote(values(@rm_fav_banks)) do
     user_change = Ecto.Changeset.change(user, fav_banks: [])
     Repo.update(user_change)
 
     user = User.find_or_create_by_chat_id(chat_id)
-    handle_private_message(user, chat_id, @fav_banks.ru)
+    handle_private_message(user, chat_id, translate(user.language, @fav_banks))
   end
 
   defp handle_private_message(user, chat_id, "⭐ " <> bank) do
@@ -184,7 +184,7 @@ defmodule Currexbot.Bot do
     Repo.update(user_change)
 
     user = User.find_or_create_by_chat_id(chat_id)
-    handle_private_message(user, chat_id, @fav_banks.ru)
+    handle_private_message(user, chat_id, translate(user.language, @fav_banks))
   end
 
   defp handle_private_message(user, chat_id, "❌ " <> bank) do
@@ -192,7 +192,7 @@ defmodule Currexbot.Bot do
     Repo.update user_change
 
     user = User.find_or_create_by_chat_id(chat_id)
-    handle_private_message(user, chat_id, @fav_banks.ru)
+    handle_private_message(user, chat_id, translate(user.language, @fav_banks))
   end
 
   #
