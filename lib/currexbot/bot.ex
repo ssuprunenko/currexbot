@@ -18,6 +18,8 @@ defmodule Currexbot.Bot do
   @cb_list ["/cb", "Курсы ЦБ 🏦"]
   @current_city_list ["/city", "Установить вручную"]
   @settings_list ["/settings", "Настройки 🔧"]
+  @help_list ["/start", "/help", "О боте 👾"]
+  @main_menu "Главное меню 🚩"
 
   @doc """
   Handle incoming message
@@ -59,6 +61,22 @@ defmodule Currexbot.Bot do
     Nadia.send_message(chat_id, "pong")
   end
 
+  # Start and Help messages
+  defp handle_private_message(_user, chat_id, text) when text in @help_list do
+    reply = """
+    Бот показывает актуальные курсы доллара и евро в банках вашего города, а также курсы валют ЦБ на сегодняшний день.
+    В настройках вы можете выбрать ваш текущий город и добавить банки в избранное. По умолчанию показываются курсы всех банков Москвы.
+    Провайдер данных — сервис http://kovalut.ru
+
+    Используйте команды /usd и /eur, чтобы посмотреть курсы доллара и евро на текущий момент.
+
+    По любым вопросам, связанным с работой бота, пишите на адрес suprunenko.s@gmail.com
+    Надеюсь, этот бот будет вам полезен.
+    """
+
+    Nadia.send_message(chat_id, reply, reply_markup: default_kbd)
+  end
+
   defp handle_private_message(_user, chat_id, "/me") do
     {:ok, %Nadia.Model.User{first_name: bot_name}} = Nadia.get_me
     env = Application.get_env(:currexbot, :env)
@@ -74,14 +92,14 @@ defmodule Currexbot.Bot do
   defp handle_private_message(user, chat_id, text) when text in @usd_list do
     reply = Currency.get_rates(user, "USD")
 
-    Nadia.send_message(chat_id, reply, reply_markup: default_kbd)
+    Nadia.send_message(chat_id, reply)
   end
 
   # Sends actual EUR rates to the chat sorted by a bank's name.
   defp handle_private_message(user, chat_id, text) when text in @eur_list do
     reply = Currency.get_rates(user, "EUR")
 
-    Nadia.send_message(chat_id, reply, reply_markup: default_kbd)
+    Nadia.send_message(chat_id, reply)
   end
 
   # Sends actual Central Bank rates to the chat.
@@ -92,7 +110,7 @@ defmodule Currexbot.Bot do
     Евро #{rates.eur}
     """
 
-    Nadia.send_message(chat_id, reply, reply_markup: default_kbd)
+    Nadia.send_message(chat_id, reply)
   end
 
   #
@@ -218,7 +236,8 @@ defmodule Currexbot.Bot do
                           [at(@usd_list, 1)],
                           [at(@eur_list, 1)],
                           [at(@cb_list, 1)],
-                          [at(@settings_list, 1)]
+                          [at(@settings_list, 1)],
+                          [at(@help_list, 2)]
                          ],
                          resize_keyboard: true,
                          one_time_keyboard: true}
@@ -227,9 +246,9 @@ defmodule Currexbot.Bot do
   # Settings keyboard
   defp settings_kbd do
     %ReplyKeyboardMarkup{keyboard: [
-                          ["Избранные банки ⭐️"],
                           ["Изменить город 🏙"],
-                          ["Главное меню"]
+                          ["Избранные банки ⭐️"],
+                          [@main_menu]
                          ],
                          resize_keyboard: true,
                          one_time_keyboard: true}
@@ -242,7 +261,7 @@ defmodule Currexbot.Bot do
                           ["Добавить банк"],
                           ["Удалить банк"],
                           ["Очистить избранное"],
-                          ["Главное меню"]
+                          [@main_menu]
                          ],
                          resize_keyboard: true,
                          one_time_keyboard: true}
@@ -251,7 +270,7 @@ defmodule Currexbot.Bot do
   defp banks_to_add_kbd(user) do
     banks = Bank.available_in_city(user.city.code) -- user.fav_banks
     banks_cmds = Enum.map(banks, fn(x) -> ["⭐ " <> x] end)
-    buttons = [["Главное меню"]] ++ banks_cmds
+    buttons = [[@main_menu]] ++ banks_cmds
 
     %ReplyKeyboardMarkup{keyboard: buttons,
                          resize_keyboard: true,
@@ -260,7 +279,7 @@ defmodule Currexbot.Bot do
 
   defp banks_to_remove_kbd(user) do
     banks = Enum.map(user.fav_banks, fn(x) -> ["❌ " <> x] end)
-    buttons = [["Главное меню"]] ++ banks
+    buttons = [[@main_menu]] ++ banks
 
     %ReplyKeyboardMarkup{keyboard: buttons,
                          resize_keyboard: true,
@@ -273,7 +292,7 @@ defmodule Currexbot.Bot do
       keyboard: [
         ["Установить вручную"],
         [%Nadia.Model.KeyboardButton{text: "Определить автоматически", request_location: true}],
-        ["Главное меню"]
+        [@main_menu]
       ],
       resize_keyboard: true,
       one_time_keyboard: true
