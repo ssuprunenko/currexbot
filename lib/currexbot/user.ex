@@ -9,7 +9,7 @@ defmodule Currexbot.User do
     field :chat_id, :integer
     field :fav_banks, {:array, :string}
     field :default_sort, :string
-    field :language, :string
+    field :language, :string, default: "ru"
 
     belongs_to :city, Currexbot.City
 
@@ -23,6 +23,7 @@ defmodule Currexbot.User do
     user
     |> cast(params, @required_fields ++ @optional_fields)
     |> validate_required(@required_fields)
+    |> validate_inclusion(:language, ~w(ru en))
     |> unique_constraint(:chat_id)
   end
 
