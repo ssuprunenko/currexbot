@@ -59,9 +59,9 @@ defmodule Currexbot.Bot do
             changeset = User.changeset(user, %{city_id: city.id})
             Repo.update!(changeset)
           end
-          "Ваш текущий город — *#{city.name}*"
+          I18n.t!(user.language, "city.current", city: city.name)
         {:error, _msg} ->
-          "Извините, ваш город пока не поддерживается"
+          I18n.t!(user.language, "city.not_support")
       end
 
     Nadia.send_message(chat_id, reply, parse_mode: "Markdown", reply_markup: default_kbd(user.language))
@@ -77,16 +77,7 @@ defmodule Currexbot.Bot do
 
   # Start and Help messages
   defp handle_private_message(user, chat_id, text) when text in unquote(values(@about)) do
-    reply = """
-    Бот показывает актуальные курсы доллара и евро в банках вашего города, а также курсы валют ЦБ на сегодняшний день.
-    В настройках вы можете выбрать ваш текущий город и добавить банки в избранное. По умолчанию показываются курсы всех банков Москвы.
-    Провайдер данных — сервис http://kovalut.ru
-
-    Используйте команды /usd и /eur, чтобы посмотреть курсы доллара и евро на текущий момент.
-
-    По любым вопросам, связанным с работой бота, пишите на адрес suprunenko.s@gmail.com
-    Надеюсь, этот бот будет вам полезен.
-    """
+    reply = I18n.t!(user.language, "about_msg")
 
     Nadia.send_message(chat_id, reply, reply_markup: default_kbd(user.language))
   end
@@ -120,8 +111,8 @@ defmodule Currexbot.Bot do
   defp handle_private_message(user, chat_id, text) when text in unquote(values(@cb)) do
     rates = Currency.get_cb_rates(user)
     reply = """
-    Доллар #{rates.usd}
-    Евро #{rates.eur}
+    #{I18n.t!(user.language, "cb.usd", rates: rates.usd)}
+    #{I18n.t!(user.language, "cb.eur", rates: rates.eur)}
     """
 
     Nadia.send_message(chat_id, reply)
@@ -132,8 +123,8 @@ defmodule Currexbot.Bot do
   #
   defp handle_private_message(user, chat_id, text) when text in unquote(values(@settings)) do
     reply = """
-    Ваши текущие настройки:
-    Город: #{user.city.name}
+    #{I18n.t!(user.language, "settings.current")}
+    #{I18n.t!(user.language, "settings.city", city: user.city.name)}
     """
 
     Nadia.send_message(chat_id, reply, reply_markup: settings_kbd(user.language))
@@ -145,8 +136,8 @@ defmodule Currexbot.Bot do
   defp handle_private_message(user, chat_id, text) when text in unquote(values(@fav_banks)) do
     reply =
       case user.fav_banks do
-        [] -> "У вас нет избранных банков"
-        _ -> "Ваши избранные банки:\n" <> Enum.join(user.fav_banks, "\n")
+        [] -> I18n.t!(user.language, "banks.no_fav")
+        _ -> I18n.t!(user.language, "banks.your_fav") <> Enum.join(user.fav_banks, "\n")
       end
 
     Nadia.send_message(chat_id, reply, reply_markup: fav_banks_kbd(user.language))
@@ -160,13 +151,13 @@ defmodule Currexbot.Bot do
   end
 
   defp handle_private_message(user, chat_id, text) when text in unquote(values(@add_bank)) do
-    reply = "Выберите банк:"
+    reply = I18n.t!(user.language, "banks.select")
 
     Nadia.send_message(chat_id, reply, reply_markup: banks_to_add_kbd(user))
   end
 
   defp handle_private_message(user, chat_id, text) when text in unquote(values(@rm_bank)) do
-    reply = "Выберите банк:"
+    reply = I18n.t!(user.language, "banks.select")
 
     Nadia.send_message(chat_id, reply, reply_markup: banks_to_remove_kbd(user))
   end
@@ -200,9 +191,7 @@ defmodule Currexbot.Bot do
   #
   defp handle_private_message(user, chat_id, text) when text in unquote(values(@edit_city)) do
     city = user.city.name
-    reply = """
-    Ваш текущий город — *#{city}*
-    """
+    reply = I18n.t!(user.language, "city.current", city: city)
 
     Nadia.send_message(chat_id, reply, parse_mode: "Markdown", reply_markup: detect_city_kbd(user.language))
   end
@@ -216,9 +205,9 @@ defmodule Currexbot.Bot do
             changeset = User.changeset(user, %{city_id: city.id})
             Repo.update!(changeset)
           end
-          "Ваш текущий город — *#{city_name}*"
+          I18n.t!(user.language, "city.current", city: city_name)
         nil ->
-          "Извините, ваш город пока не поддерживается"
+          I18n.t!(user.language, "city.not_support")
       end
 
     Nadia.send_message(chat_id, reply, parse_mode: "Markdown", reply_markup: default_kbd(user.language))
@@ -227,8 +216,9 @@ defmodule Currexbot.Bot do
   defp handle_private_message(user, chat_id, text) when text in unquote(values(@city_manual)) do
     city = user.city.name
     reply = """
-    Ваш текущий город — *#{city}*
-    Команда для изменения города:
+    #{I18n.t!(user.language, "city.current", city: city)}
+
+    #{I18n.t!(user.language, "city.edit")}
     `/city Санкт-Петербург`
     """
 
@@ -237,7 +227,9 @@ defmodule Currexbot.Bot do
 
   # Default fallback function
   defp handle_private_message(user, chat_id, _) do
-    Nadia.send_message(chat_id, "Выберите валюту:", reply_markup: default_kbd(user.language))
+    reply = I18n.t!(user.language, "select_currency")
+
+    Nadia.send_message(chat_id, reply, reply_markup: default_kbd(user.language))
   end
 
   #

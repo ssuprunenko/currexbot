@@ -11,7 +11,7 @@ defmodule Currexbot.Command do
     |> List.flatten
   end
 
-  def translate(lang, command) do
+  def translate(lang, command) when is_map(command) do
     case lang do
       "ru" -> command.ru
       _ -> command.en
