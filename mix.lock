@@ -1,4 +1,5 @@
-%{"bunt": {:hex, :bunt, "0.1.5"},
+%{"botan": {:git, "https://github.com/ssuprunenko/exBotan.git", "a6abab24717329b279f8646e4be463b5d99e3a37", [branch: "update-deps"]},
+  "bunt": {:hex, :bunt, "0.1.5"},
   "certifi": {:hex, :certifi, "0.4.0"},
   "connection": {:hex, :connection, "1.0.2"},
   "credo": {:hex, :credo, "0.3.13"},
