@@ -12,7 +12,7 @@ defmodule Currexbot.Mixfile do
 
   def application do
     [
-      applications: [:postgrex, :ecto, :logger, :httpoison, :nadia],
+      applications: [:postgrex, :ecto, :logger, :httpoison, :nadia, :botan],
       mod: {Currexbot, []}
     ]
   end
@@ -26,6 +26,7 @@ defmodule Currexbot.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:ecto, "~> 2.0.0-rc.4"},
       {:linguist, "~> 0.1.5"},
+      {:botan, github: "ssuprunenko/exBotan", branch: "update-deps"},
       {:credo, "~> 0.3", only: [:dev, :test]}
     ]
   end

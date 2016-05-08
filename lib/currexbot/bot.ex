@@ -45,6 +45,16 @@ defmodule Currexbot.Bot do
     location: nil}) do
     user = User.find_or_create_by_chat_id(chat_id)
 
+    Task.start_link(
+      Botan, :track, [
+        text, user.id, [
+          chat_id: chat_id,
+          city: user.city.name,
+          lang: user.language
+        ]
+      ]
+    )
+
     handle_private_message(user, chat_id, text)
   end
 
