@@ -19,6 +19,7 @@ defmodule Currexbot.Bot do
   #
   @settings  %Command{cmd: "/settings", ru: "Настройки 🔧", en: "Settings 🔧"}
   @about     %Command{cmd: ["/start", "/help"], ru: "О боте 👾", en: "Help 👾"}
+  @lang      %Command{cmd: "/lang", ru: "Switch to English 🌎", en: "Переключиться на русский 🌍"}
   @main_menu %Command{ru: "Главное меню 🚩", en: "Main menu 🚩"}
 
   @usd %Command{cmd: "/usd", ru: "Курс доллара 💵", en: "USD rates 💵"}
@@ -79,7 +80,7 @@ defmodule Currexbot.Bot do
   defp handle_private_message(user, chat_id, text) when text in unquote(values(@about)) do
     reply = I18n.t!(user.language, "about_msg")
 
-    Nadia.send_message(chat_id, reply, reply_markup: default_kbd(user.language))
+    Nadia.send_message(chat_id, reply, parse_mode: "Markdown", reply_markup: default_kbd(user.language))
   end
 
   defp handle_private_message(_user, chat_id, "/me") do
@@ -125,6 +126,7 @@ defmodule Currexbot.Bot do
     reply = """
     #{I18n.t!(user.language, "settings.current")}
     #{I18n.t!(user.language, "settings.city", city: user.city.name)}
+    #{I18n.t!(user.language, "settings.lang")}
     """
 
     Nadia.send_message(chat_id, reply, reply_markup: settings_kbd(user.language))
@@ -225,6 +227,26 @@ defmodule Currexbot.Bot do
     Nadia.send_message(chat_id, reply, parse_mode: "Markdown", reply_markup: detect_city_kbd(user.language))
   end
 
+  #
+  # Change language
+  #
+  defp handle_private_message(user, chat_id, "/lang " <> lang) when lang in ["ru", "en"] do
+    changeset = User.changeset(user, %{language: lang})
+    Repo.update!(changeset)
+
+    reply = I18n.t!(lang, "select_currency")
+
+    Nadia.send_message(chat_id, reply, reply_markup: default_kbd(lang))
+  end
+
+  defp handle_private_message(user, chat_id, unquote(@lang.ru)) do
+    handle_private_message(user, chat_id, "/lang en")
+  end
+
+  defp handle_private_message(user, chat_id, unquote(@lang.en)) do
+    handle_private_message(user, chat_id, "/lang ru")
+  end
+
   # Default fallback function
   defp handle_private_message(user, chat_id, _) do
     reply = I18n.t!(user.language, "select_currency")
@@ -254,6 +276,7 @@ defmodule Currexbot.Bot do
     %ReplyKeyboardMarkup{keyboard: [
                           [translate(lang, @edit_city)],
                           [translate(lang, @fav_banks)],
+                          [translate(lang, @lang)],
                           [translate(lang, @main_menu)]
                          ],
                          resize_keyboard: true,

@@ -16,25 +16,28 @@ defmodule I18n do
       edit: "To change your city:"
     ],
     banks: [
-      no_fav: "You don't have favorite banks",
+      no_fav: "You don't have any favorite banks",
       your_fav: "Your favorite banks:\n",
       select: "Select bank:"
     ],
     settings: [
       current: "Your current settings:",
-      city: "City: %{city}"
+      city: "City: %{city}",
+      lang: "Language: English"
     ],
     about_msg: """
-    Бот показывает актуальные курсы доллара и евро в банках вашего города, а также курсы валют ЦБ на сегодняшний день.
-    В настройках вы можете выбрать ваш текущий город и добавить банки в избранное. По умолчанию показываются курсы всех банков Москвы.
-    Провайдер данных — сервис http://kovalut.ru
+    This bot shows actual exchange rates for USD and Euro in banks of your city along with rates in Central Bank of Russia.
+    Only Russian cities are supported now.
 
-    Используйте команды /usd и /eur, чтобы посмотреть курсы доллара и евро на текущий момент.
+    You can change your city and favorite banks in /settings. Bot uses all banks in Moscow by default.
+    Service powered by http://kovalut.ru
 
-    По любым вопросам, связанным с работой бота, пишите на адрес suprunenko.s@gmail.com
-    Надеюсь, этот бот будет вам полезен.
+    Use /usd or /eur to check actual exchange rates.
 
-    Введите "/lang ru" чтобы изменить язык на русский.
+    If you have some questions hesitate to contact me suprunenko.s@gmail.com
+    I hope this bot will be useful for you.
+
+    _Введите_ "/lang ru", _чтобы изменить язык на русский._
     """
   ]
 
@@ -56,19 +59,21 @@ defmodule I18n do
     ],
     settings: [
       current: "Ваши текущие настройки:",
-      city: "Город: %{city}"
+      city: "Город: %{city}",
+      lang: "Язык: Русский"
     ],
     about_msg: """
     Бот показывает актуальные курсы доллара и евро в банках вашего города, а также курсы валют ЦБ на сегодняшний день.
     В настройках вы можете выбрать ваш текущий город и добавить банки в избранное. По умолчанию показываются курсы всех банков Москвы.
     Провайдер данных — сервис http://kovalut.ru
+    На данный момент поддерживаются только российские банки.
 
     Используйте команды /usd и /eur, чтобы посмотреть курсы доллара и евро на текущий момент.
 
     По любым вопросам, связанным с работой бота, пишите на адрес suprunenko.s@gmail.com
     Надеюсь, этот бот будет вам полезен.
 
-    Use "/lang en" to switch bot language to English.
+    _Use_ "/lang en" _to switch bot language to English._
     """
   ]
 end
