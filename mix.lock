@@ -19,6 +19,7 @@
   "poison": {:hex, :poison, "2.1.0"},
   "poolboy": {:hex, :poolboy, "1.5.1"},
   "postgrex": {:hex, :postgrex, "0.11.1"},
+  "russian": {:hex, :russian, "0.1.0"},
   "ssl_verify_fun": {:hex, :ssl_verify_fun, "1.1.0"},
   "ssl_verify_hostname": {:hex, :ssl_verify_hostname, "1.0.5"},
   "sweet_xml": {:hex, :sweet_xml, "0.6.1"}}
