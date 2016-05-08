@@ -47,7 +47,7 @@ defmodule Currexbot.Bot do
 
     Task.start_link(
       Botan, :track, [
-        "/" <> text, user.id, [
+        String.replace(text, ~r/[^\/\s\w]/u, ""), user.id, [
           chat_id: chat_id,
           username: username,
           city: user.city.name,
