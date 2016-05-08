@@ -30,11 +30,11 @@ Check [DEPLOY.md](DEPLOY.md) guide.
 
 ```sh
 # Run custom command on Dokku
-ssh dokku@DOMAIN_NAME.com run APP_NAME mix ecto.migrate
+dokku run APP_NAME mix ecto.migrate
 
 # Set ENV variable
-ssh dokku@DOMAIN_NAME.com config:set APP_NAME KEY=value
+dokku config:set APP_NAME BOTAN_TOKEN=secret_key
 
 # Open iex console
-ssh dokku@DOMAIN_NAME.com iex -S mix
+dokku run APP_NAME iex -S mix
 ```

@@ -17,4 +17,11 @@ defmodule Currexbot.Command do
       _ -> command.en
     end
   end
+
+  def translate(command) when is_binary(command) do
+    command
+    |> String.replace(~r/[^\/\s\w]/u, "")
+    |> String.strip
+    |> Russian.transliterate
+  end
 end
