@@ -17,7 +17,7 @@ defmodule Currexbot.Bot do
   #
   # Commands
   #
-  @settings  %Command{cmd: "/settings", ru: "Настройки 🔧", en: "Settings 🔧"}
+  @settings  %Command{cmd: ["/settings", "/lang"], ru: "Настройки 🔧", en: "Settings 🔧"}
   @about     %Command{cmd: ["/start", "/help"], ru: "О боте 👾", en: "Help 👾"}
   @lang      %Command{cmd: "/lang", ru: "Switch to English 🌎", en: "Переключиться на русский 🌍"}
   @main_menu %Command{ru: "Главное меню 🚩", en: "Main menu 🚩"}
