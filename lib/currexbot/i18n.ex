@@ -34,7 +34,7 @@ defmodule I18n do
 
     Use /usd or /eur to check actual exchange rates.
 
-    If you have some questions hesitate to contact me suprunenko.s@gmail.com
+    If you have some questions don't hesitate to contact me suprunenko.s@gmail.com
     I hope this bot will be useful for you.
 
     _Введите_ "/lang ru", _чтобы изменить язык на русский._
