@@ -19,16 +19,16 @@ defmodule Currexbot.Mixfile do
 
   defp deps do
     [
-      {:httpoison, "~> 0.8.0"},
+      {:httpoison, "~> 0.9.0"},
       {:nadia, github: "zhyu/nadia"},
-      {:floki, "~> 0.8"},
+      {:floki, "~> 0.10"},
       {:sweet_xml, "~> 0.6"},
       {:postgrex, ">= 0.0.0"},
-      {:ecto, "~> 2.0.0-rc.4"},
+      {:ecto, "~> 2.0.0"},
       {:linguist, "~> 0.1.5"},
       {:russian, "~> 0.1.0"},
       {:botan, github: "ssuprunenko/exBotan", branch: "update-deps"},
-      {:credo, "~> 0.3", only: [:dev, :test]}
+      {:credo, "~> 0.4", only: [:dev, :test]}
     ]
   end
 end
