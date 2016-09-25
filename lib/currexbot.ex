@@ -12,8 +12,8 @@ defmodule Currexbot do
 
     children = [
       supervisor(Task.Supervisor, [[name: @task_supervisor_name]]),
-      worker(Currexbot.Repo, []),
-      worker(Task, [@task_name, :pull_updates, []])
+      supervisor(Currexbot.Repo, []),
+      supervisor(Task, [@task_name, :pull_updates, []])
     ]
 
     opts = [strategy: :one_for_one, name: Currexbot.Supervisor]
