@@ -23,7 +23,7 @@ defmodule Currexbot.Mixfile do
       {:nadia, github: "zhyu/nadia"},
       {:floki, "~> 0.10"},
       {:sweet_xml, "~> 0.6"},
-      {:postgrex, ">= 0.0.0"},
+      {:postgrex, "~> 0.12.1"},
       {:ecto, "~> 2.0.0"},
       {:linguist, "~> 0.1.5"},
       {:russian, "~> 0.1.0"},
