@@ -11,8 +11,9 @@ defmodule Currexbot do
     import Supervisor.Spec, warn: false
 
     children = [
-      supervisor(Task.Supervisor, [[name: @task_supervisor_name]]),
+      worker(Currexbot.Server, []),
       supervisor(Currexbot.Repo, []),
+      supervisor(Task.Supervisor, [[name: @task_supervisor_name]]),
       supervisor(Task, [@task_name, :pull_updates, []])
     ]
 
