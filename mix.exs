@@ -33,12 +33,12 @@ defmodule Currexbot.Mixfile do
       {:floki, "~> 0.10"},
       {:sweet_xml, "~> 0.6"},
       {:postgrex, "~> 0.12.1"},
-      {:ecto, "~> 2.0.0"},
+      {:ecto, "~> 2.1.0-rc.3"},
       {:linguist, "~> 0.1.5"},
       {:russian, "~> 0.1.0"},
       {:cowboy, "~> 1.0.4"},
       {:plug, "~> 1.2"},
-      {:botan, github: "ssuprunenko/exBotan", branch: "update-deps"},
+      {:botan, github: "ssuprunenko/exBotan", branch: "update-libs"},
       {:credo, "~> 0.4", only: [:dev, :test]}
     ]
   end
