@@ -28,18 +28,18 @@ defmodule Currexbot.Mixfile do
 
   defp deps do
     [
-      {:httpoison, "~> 0.9.0"},
+      {:httpoison, "~> 0.9"},
       {:nadia, github: "zhyu/nadia"},
       {:floki, "~> 0.10"},
       {:sweet_xml, "~> 0.6"},
-      {:postgrex, "~> 0.12.1"},
-      {:ecto, "~> 2.1.0-rc.3"},
+      {:postgrex, "~> 0.13"},
+      {:ecto, "~> 2.1.1"},
       {:linguist, "~> 0.1.5"},
       {:russian, "~> 0.1.0"},
       {:cowboy, "~> 1.0.4"},
       {:plug, "~> 1.2"},
       {:botan, github: "ssuprunenko/exBotan", branch: "update-libs"},
-      {:credo, "~> 0.4", only: [:dev, :test]}
+      {:credo, "~> 0.5", only: [:dev, :test]}
     ]
   end
 end
