@@ -10,7 +10,7 @@ defmodule Currexbot.Bank do
 
   defp fetch_html(city_code) do
     url = @base_url <> to_string(city_code)
-    %HTTPoison.Response{status_code: 200, body: body} = HTTPoison.get! url
+    %HTTPoison.Response{body: body} = HTTPoison.get! url
     body
   end
 end
