@@ -33,7 +33,7 @@ Check [DEPLOY.md](DEPLOY.md) guide.
 dokku run APP_NAME mix ecto.migrate
 
 # Set ENV variable
-dokku config:set APP_NAME BOTAN_TOKEN=secret_key
+dokku config:set APP_NAME SECRET_TOKEN=secret_key
 
 # Run seeds
 dokku run APP_NAME mix run priv/repo/seeds.exs

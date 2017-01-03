@@ -40,21 +40,10 @@ defmodule Currexbot.Bot do
   Handle incoming message
   """
   def handle_message(%Message{
-    chat: %Chat{type: "private", id: chat_id, username: username},
+    chat: %Chat{type: "private", id: chat_id},
     text: text,
     location: nil}) do
     user = User.find_or_create_by_chat_id(chat_id)
-
-    Task.start_link(
-      Botan, :track, [
-        translate(text), user.id, [
-          chat_id: chat_id,
-          username: username,
-          city: user.city.name,
-          lang: user.language
-        ]
-      ]
-    )
 
     handle_private_message(user, chat_id, text)
   end

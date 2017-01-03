@@ -18,7 +18,6 @@ defmodule Currexbot.Mixfile do
         :logger,
         :httpoison,
         :nadia,
-        :botan,
         :cowboy,
         :plug
       ],
@@ -28,7 +27,7 @@ defmodule Currexbot.Mixfile do
 
   defp deps do
     [
-      {:httpoison, "~> 0.9"},
+      {:httpoison, "~> 0.10"},
       {:nadia, github: "zhyu/nadia"},
       {:floki, "~> 0.10"},
       {:sweet_xml, "~> 0.6"},
@@ -38,7 +37,6 @@ defmodule Currexbot.Mixfile do
       {:russian, "~> 0.1.0"},
       {:cowboy, "~> 1.0.4"},
       {:plug, "~> 1.2"},
-      {:botan, github: "ssuprunenko/exBotan", branch: "update-libs"},
       {:credo, "~> 0.5", only: [:dev, :test]}
     ]
   end

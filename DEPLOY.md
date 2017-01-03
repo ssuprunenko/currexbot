@@ -34,7 +34,7 @@ Put any ENV keys to app config:
 $ dokku config:set app_name SECRET_KEY=secret
 ```
 
-Keys TELEGRAM_BOT_TOKEN and BOTAN_TOKEN required for this project.
+Key TELEGRAM_BOT_TOKEN required for this project.
 
 ## Add changes to your git repository on local computer
 
