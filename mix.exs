@@ -4,10 +4,10 @@ defmodule Currexbot.Mixfile do
   def project do
     [app: :currexbot,
      version: "0.2.0",
-     elixir: "~> 1.3",
+     elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps()]
   end
 
   def application do
@@ -35,7 +35,7 @@ defmodule Currexbot.Mixfile do
       {:ecto, "~> 2.1.1"},
       {:linguist, "~> 0.1.5"},
       {:russian, "~> 0.1.0"},
-      {:cowboy, "~> 1.0.4"},
+      {:cowboy, "~> 1.1"},
       {:plug, "~> 1.2"},
       {:credo, "~> 0.5", only: [:dev, :test]}
     ]
