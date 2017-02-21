@@ -301,6 +301,9 @@ defmodule Currexbot.Bot do
     banks_cmds = Enum.map(banks, fn(x) -> ["⭐ " <> x] end)
     buttons = [[translate(user.language, @main_menu)]] ++ banks_cmds
 
+    # TODO: Replace that hack with anything less hacky
+    buttons = Enum.take(buttons, 144)
+
     %ReplyKeyboardMarkup{keyboard: buttons,
                          resize_keyboard: true,
                          one_time_keyboard: true}
@@ -309,7 +312,6 @@ defmodule Currexbot.Bot do
   defp banks_to_remove_kbd(user) do
     banks = Enum.map(user.fav_banks, fn(x) -> ["❌ " <> x] end)
     buttons = [[translate(user.language, @main_menu)]] ++ banks
-
     %ReplyKeyboardMarkup{keyboard: buttons,
                          resize_keyboard: true,
                          one_time_keyboard: true}

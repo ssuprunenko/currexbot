@@ -13,7 +13,7 @@ defmodule Currexbot.User do
 
     belongs_to :city, Currexbot.City
 
-    timestamps
+    timestamps()
   end
 
   @required_fields ~w(chat_id city_id)a
