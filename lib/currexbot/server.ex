@@ -24,8 +24,8 @@ defmodule Currexbot.Server do
   # Handle Telegram Webhook
   post "/messages" do
     with {:ok, body, _} <- read_body(conn),
-         {:ok, params} <- Poison.decode(body, keys: :atoms),
-         message <- Nadia.Parser.parse_result(params.message, ""),
+         {:ok, %{message: msg}} <- Poison.decode(body, keys: :atoms),
+         message <- Nadia.Parser.parse_result(msg, ""),
       do: handle_message(message)
 
     send_resp(conn, 201, "Created")
