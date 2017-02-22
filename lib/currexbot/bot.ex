@@ -302,7 +302,7 @@ defmodule Currexbot.Bot do
     buttons = [[translate(user.language, @main_menu)]] ++ banks_cmds
 
     # TODO: Replace that hack with anything less hacky
-    buttons = Enum.take(buttons, 138)
+    buttons = Enum.take(buttons, 135)
 
     %ReplyKeyboardMarkup{keyboard: buttons,
                          resize_keyboard: true,
