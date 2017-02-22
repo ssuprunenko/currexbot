@@ -172,8 +172,8 @@ defmodule Currexbot.Bot do
     handle_private_message(user, chat_id, translate(user.language, @fav_banks))
   end
 
-  defp handle_private_message(user, chat_id, "⭐ " <> bank) do
-    user_change = Ecto.Changeset.change(user, fav_banks: user.fav_banks ++ [bank])
+  defp handle_private_message(user, chat_id, "⭐️" <> bank) do
+    user_change = Ecto.Changeset.change(user, fav_banks: user.fav_banks ++ [String.trim(bank)])
     Repo.update(user_change)
 
     user = User.find_or_create_by_chat_id(chat_id)
@@ -298,11 +298,11 @@ defmodule Currexbot.Bot do
 
   defp banks_to_add_kbd(user) do
     banks = Bank.available_in_city(user.city.code) -- user.fav_banks
-    banks_cmds = Enum.map(banks, fn(x) -> ["⭐ " <> x] end)
+    banks_cmds = Enum.map(banks, fn(x) -> ["⭐️ " <> x] end)
     buttons = [[translate(user.language, @main_menu)]] ++ banks_cmds
 
     # TODO: Replace that hack with anything less hacky
-    buttons = Enum.take(buttons, 144)
+    buttons = Enum.take(buttons, 138)
 
     %ReplyKeyboardMarkup{keyboard: buttons,
                          resize_keyboard: true,
