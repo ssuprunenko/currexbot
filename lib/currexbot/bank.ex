@@ -1,5 +1,5 @@
 defmodule Currexbot.Bank do
-  @base_url "http://kovalut.ru/bankslist.php?kod="
+  @base_url "https://kovalut.ru/bankslist.php?kod="
 
   def available_in_city(city_code) do
     city_code

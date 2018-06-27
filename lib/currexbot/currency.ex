@@ -5,8 +5,8 @@ defmodule Currexbot.Currency do
   """
   import SweetXml
 
-  @base_url "http://informer.kovalut.ru/webmaster/xml-table.php?kod="
-  @cb_url "http://informer.kovalut.ru/webmaster/getxml.php?kod="
+  @base_url "https://informer.kovalut.ru/webmaster/xml-table.php?kod="
+  @cb_url "https://informer.kovalut.ru/webmaster/getxml.php?kod="
 
   def get_rates(user, currency \\ "USD", sort_el \\ "name") do
     user.city.code
