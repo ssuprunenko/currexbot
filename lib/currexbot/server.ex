@@ -12,7 +12,7 @@ defmodule Currexbot.Server do
   end
 
   def start_link do
-    {:ok, _} = Plug.Adapters.Cowboy.http Currexbot.Server, []
+    {:ok, _} = Plug.Adapters.Cowboy.http Currexbot.Server, [], port: Application.get_env(:currexbot, :port)
   end
 
   # For Uptime Monitoring service

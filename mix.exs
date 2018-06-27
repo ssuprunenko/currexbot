@@ -3,8 +3,8 @@ defmodule Currexbot.Mixfile do
 
   def project do
     [app: :currexbot,
-     version: "0.2.0",
-     elixir: "~> 1.4",
+     version: "0.3.0",
+     elixir: "~> 1.6",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
@@ -27,12 +27,12 @@ defmodule Currexbot.Mixfile do
 
   defp deps do
     [
-      {:httpoison, "~> 0.10"},
+      {:httpoison, "~> 1.1.1"},
       {:nadia, github: "zhyu/nadia"},
       {:floki, "~> 0.10"},
       {:sweet_xml, "~> 0.6"},
       {:postgrex, "~> 0.13"},
-      {:ecto, "~> 2.1.1"},
+      {:ecto, "~> 2.2"},
       {:linguist, "~> 0.1.5"},
       {:russian, "~> 0.1.0"},
       {:cowboy, "~> 1.1"},

@@ -30,7 +30,7 @@ defmodule I18n do
     Only Russian cities are supported now.
 
     You can change your city and favorite banks in /settings. Bot uses all banks in Moscow by default.
-    Service powered by http://kovalut.ru
+    Service powered by https://kovalut.ru
 
     Use /usd or /eur to check actual exchange rates.
 
@@ -65,7 +65,7 @@ defmodule I18n do
     about_msg: """
     Бот показывает актуальные курсы доллара и евро в банках вашего города, а также курсы валют ЦБ на сегодняшний день.
     В настройках вы можете выбрать ваш текущий город и добавить банки в избранное. По умолчанию показываются курсы всех банков Москвы.
-    Провайдер данных — сервис http://kovalut.ru
+    Провайдер данных — сервис https://kovalut.ru
     На данный момент поддерживаются только российские банки.
 
     Используйте команды /usd и /eur, чтобы посмотреть курсы доллара и евро на текущий момент.
